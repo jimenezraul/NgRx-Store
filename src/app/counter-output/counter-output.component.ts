@@ -4,6 +4,8 @@ import { Observable, Subscription } from 'rxjs';
 import { CounterService } from '../counter.service';
 import { Store } from '@ngrx/store';
 import { AsyncPipe } from '@angular/common';
+import { selectCounter } from '../store/counter.selector';
+import type { Counter } from './counter.type';
 
 @Component({
   selector: 'app-counter-output',
@@ -14,7 +16,7 @@ import { AsyncPipe } from '@angular/common';
 export class CounterOutputComponent {
   count$: Observable<number>;
 
-  constructor(private store: Store<{ counter: number }>) { 
-    this.count$ = store.select('counter');
+  constructor(private store: Store<Counter>) { 
+    this.count$ = store.select(selectCounter);
   }
 }
