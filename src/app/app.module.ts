@@ -16,7 +16,6 @@ import { CounterEffects } from './store/counter.effects';
     CounterControlsComponent,
   ],
   imports: [BrowserModule, StoreModule.forRoot({
-    // counter
     counter: counterReducer
   }, {}), EffectsModule.forRoot([CounterEffects])],
   providers: [],
